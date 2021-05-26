@@ -1,0 +1,5 @@
+- Internacionalization
+- a11y
+- screen sizes
+- old browsers
+-
