@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  border: 1px solid #e9e9f4;
+  border-radius: 12px;
+  padding: 8px 11px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: #dadce8;
+  border-radius: 10px;
+  margin-right: 4px;
+}
+
+.dot:global(.active) {
+  background-color: red;
+}
+
+.list {
+  display: flex;
+}
+
+.live:global(.active) {
+  color: red;
+}
+
+.listItem:global(.active) {
+  color: red;
+}

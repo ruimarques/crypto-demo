@@ -1,7 +1,7 @@
 /* @import-normalize; */
 
-.bat {
-  /* background-image: url('bat.png'); */
-  width: 20px;
-  height: 20px;
+/* Bulma is overriding these :( */
+body {
+  font-family: Poppins;
+  font-size: 13px;
 }

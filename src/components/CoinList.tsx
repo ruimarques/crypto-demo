@@ -1,6 +1,10 @@
+import { formatCurrency } from '../utils';
+import styles from './CoinList.module.css';
+
 export interface CoinListItem {
   name: string;
-  fiat: string;
+  fiatAmount: number;
+  currency: string;
   amount: string;
   unit: string;
 }
@@ -8,23 +12,34 @@ export interface CoinListItem {
 interface CoinListProps {
   filter?: string | null;
   items: CoinListItem[];
+  onAdd: () => void;
 }
 
 const CoinListComponent = (props: CoinListProps) => {
   return (
     <>
-      <ul>
-        {props.items.map((item) => (
-          <li key={item.unit}>
+      <ul className={styles.list}>
+        {props.items.map((item, index) => (
+          <li key={item.unit + index} className={styles.item}>
             <img
               src={`/assets/${item.unit.toLocaleLowerCase()}.png`}
-              alt="Logo"
+              alt={`${item.name} logo.`}
             />
-            {item.name} {item.fiat} {item.amount + ' ' + item.unit}
+            <span className={styles.name}>{item.name}</span>
+            <div className={styles.currencies}>
+              <span className={styles.fiat}>
+                {formatCurrency(item.fiatAmount, item.currency)}
+              </span>
+              <span className={styles.crypto}>
+                {item.amount + ' ' + item.unit}
+              </span>
+            </div>
           </li>
         ))}
       </ul>
-      <button className="addBtn">Add Coin</button>
+      <button className={styles.addBtn} onClick={props.onAdd}>
+        Add Coin
+      </button>
     </>
   );
 };
