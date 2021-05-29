@@ -10,17 +10,16 @@ const DashboardPage = () => {
 
   return (
     <>
-      <div>
-        <CryptoTabsComponent />
-        <Switch>
-          <Route path={`${match.path}/portfolio`}>
-            <PortfolioComponent />
-          </Route>
-          <Route path={`${match.path}/prices`}>
-            <h3>prices page</h3>
-          </Route>
-        </Switch>
-      </div>
+      <CryptoTabsComponent />
+
+      <Switch>
+        <Route path={`${match.path}/portfolio`}>
+          <PortfolioComponent />
+        </Route>
+        <Route path={`${match.path}/prices`}>
+          <h3>prices page</h3>
+        </Route>
+      </Switch>
     </>
   );
 };

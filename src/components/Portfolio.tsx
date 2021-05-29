@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { formatCurrency, randomIntFromInterval } from '../utils';
 import { CoinListItem } from './CoinList';
 import SearchComponent from './Search';
@@ -44,8 +44,9 @@ const calculateBalance = (data: CoinListItem[]) => {
 };
 
 const PortfolioComponent = () => {
-  const [searchInput, setSearchInput] = useState<string | null>(null);
+  const [searchInput, setSearchInput] = useState<string>('');
   const [tokens, setTokens] = useState<CoinListItem[]>(coins);
+  const [filteredTokens, setFilteredTokens] = useState<CoinListItem[]>(coins);
 
   const handleAdd = () => {
     const copyIndex = randomIntFromInterval(0, tokens.length - 1);
@@ -54,13 +55,27 @@ const PortfolioComponent = () => {
     setTokens([...tokens, tokens[copyIndex]]);
   };
 
+  const handleSelectedTimespan = (timespan: string) => {
+    console.log(timespan);
+  };
+
+  useEffect(() => {
+    setFilteredTokens(
+      tokens.filter((item) => {
+        return item.name.toLowerCase().includes(searchInput.toLowerCase());
+      })
+    );
+  }, [searchInput, tokens]);
+
   return (
     <>
       <header className={styles.header}>
-        <h2>Balance</h2>
-        <h3>{formatCurrency(calculateBalance(tokens))}</h3>
+        <div className={styles.balance}>
+          <h2>Balance</h2>
+          <h3>{formatCurrency(calculateBalance(tokens))}</h3>
+        </div>
 
-        <TimespanComponent />
+        <TimespanComponent onSelect={handleSelectedTimespan} />
       </header>
 
       <img
@@ -77,11 +92,7 @@ const PortfolioComponent = () => {
           }}
         />
 
-        <CoinListComponent
-          filter={searchInput}
-          items={tokens}
-          onAdd={handleAdd}
-        />
+        <CoinListComponent items={filteredTokens} onAdd={handleAdd} />
       </div>
     </>
   );

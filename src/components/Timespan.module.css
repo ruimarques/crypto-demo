@@ -1,17 +1,19 @@
 .container {
   display: flex;
   font-size: 14px;
+  font-weight: 600;
   align-items: center;
   border: 1px solid #e9e9f4;
   border-radius: 12px;
   padding: 8px 11px;
+  height: 36px;
 }
 
 .dot {
   width: 6px;
   height: 6px;
   background-color: #dadce8;
-  border-radius: 10px;
+  border-radius: 4px;
   margin-right: 4px;
 }
 
@@ -23,10 +25,30 @@
   display: flex;
 }
 
+.live {
+  margin-right: 6px;
+}
+
 .live:global(.active) {
   color: red;
 }
 
+.listItem {
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.listItem:not(:last-child) {
+  margin-right: 4px;
+}
+
 .listItem:global(.active) {
-  color: red;
+  color: white;
+  background-color: #495057;
+}
+
+.dot,
+.live,
+.listItem {
+  cursor: pointer;
 }

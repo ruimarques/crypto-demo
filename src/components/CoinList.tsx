@@ -10,7 +10,7 @@ export interface CoinListItem {
 }
 
 interface CoinListProps {
-  filter?: string | null;
+  filter?: string;
   items: CoinListItem[];
   onAdd: () => void;
 }

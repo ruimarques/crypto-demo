@@ -16,3 +16,15 @@
   border-color: #a43ce4;
   box-shadow: 0 0 0 0.125em rgb(164 60 228 / 25%);
 }
+
+.clearIcon {
+  position: absolute;
+  width: 20px;
+  right: 8px;
+  top: 8px;
+  color: #aeb1c2;
+}
+
+.clearIcon:hover {
+  cursor: pointer;
+}

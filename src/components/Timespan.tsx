@@ -24,28 +24,40 @@ const timespans = [
   },
 ];
 
-const TimespanComponent = () => {
+interface TimespanProps {
+  onSelect: (k: string) => void;
+}
+
+const TimespanComponent = (props: TimespanProps) => {
   const [active, setActive] = useState('');
+
+  const handleSelection = (key: string) => {
+    setActive(key);
+    props.onSelect(key);
+  };
+
+  const getActiveClass = (key: string) => {
+    return active === key ? 'active' : '';
+  };
+
   return (
     <>
       <div className={styles.container}>
+        <span className={`${styles.dot} ${getActiveClass('live')}`}></span>
         <span
-          className={`${styles.dot} ${active === 'live' ? 'active' : ''}`}
-        ></span>
-        <span
-          onClick={() => setActive('live')}
-          className={`${styles.live} ${active === 'live' ? 'active' : ''}`}
+          onClick={() => handleSelection('live')}
+          className={`${styles.live} ${getActiveClass('live')}`}
         >
           LIVE
         </span>
         <ul className={styles.list}>
-          {timespans.map((item, index) => (
+          {timespans.map((item) => (
             <li
               className={`${styles.listItem} ${
                 item.key === active ? 'active' : ''
               }`}
               key={item.key}
-              onClick={() => setActive(item.key)}
+              onClick={() => handleSelection(item.key)}
             >
               {item.label}
             </li>

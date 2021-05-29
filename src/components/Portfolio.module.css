@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.header h2 {
+  font-size: 16px;
+  color: #868e96;
+}
+
+.header h3 {
+  font-size: 36px;
+  color: #212529;
+}
+
+.chart {
+  margin-bottom: 30px;
+}
+
+.tokens {
+  margin: 0 110px;
+}
+
+.tokens input {
+  margin-bottom: 16px;
+}
