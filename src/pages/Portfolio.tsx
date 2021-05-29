@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { formatCurrency, randomIntFromInterval } from '../utils';
-import { CoinListItem } from './CoinList';
-import SearchComponent from './Search';
-import CoinListComponent from './CoinList';
-import TimespanComponent from './Timespan';
+import { CoinListItem } from '../components/CoinList';
+import SearchComponent from '../components/Search';
+import CoinListComponent from '../components/CoinList';
+import TimespanComponent from '../components/Timespan';
 import styles from './Portfolio.module.css';
 
 const coins: CoinListItem[] = [

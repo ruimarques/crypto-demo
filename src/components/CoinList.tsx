@@ -1,6 +1,6 @@
+import { ReactComponent as PlusIcon } from '../assets/plus.svg';
 import { formatCurrency } from '../utils';
 import styles from './CoinList.module.css';
-import { ReactComponent as PlusIcon } from '../assets/plus.svg';
 
 export interface CoinListItem {
   name: string;

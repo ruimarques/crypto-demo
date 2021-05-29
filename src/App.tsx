@@ -1,9 +1,14 @@
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  Redirect,
+  BrowserRouter as Router,
+} from 'react-router-dom';
 
 import 'bulma/css/bulma.min.css';
 import styles from './App.module.css';
 
-import DashboardPage from './DashboardPage';
+import Dashboard from './pages/Dashboard';
 import NavigationComponent from './components/Navigation';
 
 function App() {
@@ -17,7 +22,7 @@ function App() {
         <section className={styles.content}>
           <Switch>
             <Route path="/crypto">
-              <DashboardPage />
+              <Dashboard />
             </Route>
             <Route path="/rewards">
               <h3>Rewards</h3>
@@ -25,6 +30,7 @@ function App() {
             <Route path="/cards">
               <h3>Cards</h3>
             </Route>
+            <Redirect from={`/`} to={`/crypto`} />
           </Switch>
         </section>
       </div>

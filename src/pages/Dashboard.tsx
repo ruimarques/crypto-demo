@@ -1,11 +1,9 @@
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom';
 
-import styles from './DashboardPage.module.css';
-import CryptoTabsComponent from './components/CryptoTabs';
-import { useRouteMatch } from 'react-router-dom';
-import PortfolioComponent from './components/Portfolio';
+import CryptoTabsComponent from '../components/CryptoTabs';
+import PortfolioComponent from './Portfolio';
 
-const DashboardPage = () => {
+const Dashboard = () => {
   let match = useRouteMatch();
 
   return (
@@ -34,4 +32,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default Dashboard;

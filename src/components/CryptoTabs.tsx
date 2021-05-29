@@ -5,6 +5,29 @@ import { ReactComponent as CogIcon } from '../assets/cog.svg';
 import { ReactComponent as LockIcon } from '../assets/lock.svg';
 import styles from './CryptoTabs.module.css';
 
+const menuItems = [
+  {
+    key: 'portfolio',
+    text: 'Portfolio',
+  },
+  {
+    key: 'prices',
+    text: 'Prices',
+  },
+  {
+    key: 'defi',
+    text: 'DeFi',
+  },
+  {
+    key: 'nfts',
+    text: 'NFTs',
+  },
+  {
+    key: 'accounts',
+    text: 'Accounts',
+  },
+];
+
 const CryptoTabsComponent = () => {
   let match = useRouteMatch();
 
@@ -17,54 +40,44 @@ const CryptoTabsComponent = () => {
   return (
     <>
       <ul className={styles.tabs}>
-        <li>
-          <NavLink exact className={styles.link} to={`${match.url}/portfolio`}>
-            Portfolio
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact className={styles.link} to={`${match.url}/prices`}>
-            Prices
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact className={styles.link} to={`${match.url}/defi`}>
-            DeFi
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact className={styles.link} to={`${match.url}/nfts`}>
-            NFTs
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact className={styles.link} to={`${match.url}/accounts`}>
-            Accounts
-          </NavLink>
-        </li>
+        {menuItems.map((item) => (
+          <li key={item.key}>
+            <NavLink
+              exact
+              className={styles.link}
+              to={`${match.url}/${item.key}`}
+            >
+              {item.text}
+            </NavLink>
+          </li>
+        ))}
         <li>
           <button className={styles.ellipsis} onClick={toggleMenu}>
             <MeatballsLogo />
           </button>
-          {isMenuOpen && (
-            <div className={styles.ellipsisMenu}>
-              <button className={styles.menuBtn}>
-                <span className={`${styles.icon}`}>
-                  <LockIcon />
-                </span>
-                <span>Lock Crypto Wallet</span>
-              </button>
-              <button className={styles.menuBtn}>
-                <span className={`${styles.icon}`}>
-                  <CogIcon />
-                </span>
-                <span>Settings</span>
-              </button>
-            </div>
-          )}
+          {isMenuOpen && <EllipsisMenuComponent />}
         </li>
       </ul>
     </>
+  );
+};
+
+const EllipsisMenuComponent = () => {
+  return (
+    <div className={styles.ellipsisMenu}>
+      <button className={styles.menuBtn}>
+        <span className={`${styles.icon}`}>
+          <LockIcon />
+        </span>
+        <span>Lock Crypto Wallet</span>
+      </button>
+      <button className={styles.menuBtn}>
+        <span className={`${styles.icon}`}>
+          <CogIcon />
+        </span>
+        <span>Settings</span>
+      </button>
+    </div>
   );
 };
 
