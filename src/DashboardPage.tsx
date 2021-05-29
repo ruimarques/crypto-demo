@@ -17,7 +17,16 @@ const DashboardPage = () => {
           <PortfolioComponent />
         </Route>
         <Route path={`${match.path}/prices`}>
-          <h3>prices page</h3>
+          <h2>Prices Tab</h2>
+        </Route>
+        <Route path={`${match.path}/defi`}>
+          <h2>DeFi Tab</h2>
+        </Route>
+        <Route path={`${match.path}/nfts`}>
+          <h2>NFTs Tab</h2>
+        </Route>
+        <Route path={`${match.path}/accounts`}>
+          <h2>Accounts Tab</h2>
         </Route>
       </Switch>
     </>

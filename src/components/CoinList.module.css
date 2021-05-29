@@ -30,15 +30,23 @@
 }
 
 .addBtn {
+  display: flex;
+  align-items: center;
   height: 40px;
-  padding: 0 16px;
+  padding: 0 18px;
   background-color: transparent;
   border: 1px solid #aeb1c2;
   border-radius: 20px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .addBtn:hover {
   color: #a43ce4;
   border-color: #a43ce4;
+}
+
+.plusIcon {
+  height: 16px;
+  margin-right: 8px;
 }

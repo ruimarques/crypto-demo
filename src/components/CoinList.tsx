@@ -1,5 +1,6 @@
 import { formatCurrency } from '../utils';
 import styles from './CoinList.module.css';
+import { ReactComponent as PlusIcon } from '../assets/plus.svg';
 
 export interface CoinListItem {
   name: string;
@@ -38,7 +39,10 @@ const CoinListComponent = (props: CoinListProps) => {
         ))}
       </ul>
       <button className={styles.addBtn} onClick={props.onAdd}>
-        Add Coin
+        <span className={`${styles.plusIcon}`}>
+          <PlusIcon />
+        </span>
+        <span>Add Coin</span>
       </button>
     </>
   );
