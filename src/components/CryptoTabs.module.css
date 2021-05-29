@@ -5,13 +5,8 @@
 }
 
 .tabs li {
-  /* border-style: solid;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 3px;
-  border-image: linear-gradient(to right, #a43ce4, #a72b6d); */
   flex-grow: 1;
+  border-bottom: 2px solid #dadce8;
 }
 
 .tabs li:last-child {
@@ -30,20 +25,37 @@
   letter-spacing: 0.01em;
   display: flex;
   align-items: center;
-  padding: 15px 0;
-  border-bottom: 2px solid #dadce8;
+  padding: 15px 0 15px 30px;
+  position: relative;
 }
 
-.link:hover:not(:global(.active)) {
-  background: linear-gradient(128.18deg, #a43ce4 13.94%, #a72b6d 84.49%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* tab link hover or active */
 
+.link:hover,
 .link:global(.active) {
   background: linear-gradient(128.18deg, #a43ce4 13.94%, #a72b6d 84.49%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.link:hover:after,
+.link:global(.active):after {
+  content: '';
+  background: linear-gradient(128.18deg, #a43ce4 13.94%, #a72b6d 84.49%);
+  display: block;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+
+/* ellipsis menu */
+
+.ellipsis {
+  border: 0;
+  padding: 0;
+  background: transparent;
 }
 
 .ellipsis svg {

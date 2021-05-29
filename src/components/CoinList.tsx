@@ -24,7 +24,7 @@ const CoinListComponent = (props: CoinListProps) => {
           <li key={item.unit + index} className={styles.item}>
             <img
               src={`/assets/${item.unit.toLocaleLowerCase()}.png`}
-              alt={`${item.name} logo.`}
+              alt={`${item.name} logo`}
             />
             <span className={styles.name}>{item.name}</span>
             <div className={styles.currencies}>

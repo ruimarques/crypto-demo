@@ -44,25 +44,24 @@ const TimespanComponent = (props: TimespanProps) => {
     <>
       <div className={styles.container}>
         <span className={`${styles.dot} ${getActiveClass('live')}`}></span>
-        <span
+        <button
           onClick={() => handleSelection('live')}
           className={`${styles.live} ${getActiveClass('live')}`}
         >
           LIVE
-        </span>
-        <ul className={styles.list}>
-          {timespans.map((item) => (
-            <li
-              className={`${styles.listItem} ${
-                item.key === active ? 'active' : ''
-              }`}
-              key={item.key}
-              onClick={() => handleSelection(item.key)}
-            >
-              {item.label}
-            </li>
-          ))}
-        </ul>
+        </button>
+
+        {timespans.map((item) => (
+          <button
+            className={`${styles.listItem} ${
+              item.key === active ? 'active' : ''
+            }`}
+            key={item.key}
+            onClick={() => handleSelection(item.key)}
+          >
+            {item.label}
+          </button>
+        ))}
       </div>
     </>
   );

@@ -71,8 +71,8 @@ const PortfolioComponent = () => {
     <>
       <header className={styles.header}>
         <div className={styles.balance}>
-          <h2>Balance</h2>
-          <h3>{formatCurrency(calculateBalance(tokens))}</h3>
+          <h1>Balance</h1>
+          <h2>{formatCurrency(calculateBalance(tokens))}</h2>
         </div>
 
         <TimespanComponent onSelect={handleSelectedTimespan} />

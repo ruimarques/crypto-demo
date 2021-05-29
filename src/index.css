@@ -1,7 +1,5 @@
-/* @import-normalize; */
-
-/* Bulma is overriding these :( */
+/* Quick hacking with !important because Bulma is overriding these :( */
 body {
-  font-family: Poppins;
-  font-size: 13px;
+  font-family: Poppins !important;
+  font-size: 13px !important;
 }

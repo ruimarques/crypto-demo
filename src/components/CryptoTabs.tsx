@@ -43,9 +43,9 @@ const CryptoTabsComponent = () => {
           </NavLink>
         </li>
         <li>
-          <span className={styles.ellipsis} onClick={toggleMenu}>
+          <button className={styles.ellipsis} onClick={toggleMenu}>
             <MeatballsLogo />
-          </span>
+          </button>
           {isMenuOpen && (
             <div className={styles.ellipsisMenu}>
               <button className={styles.menuBtn}>

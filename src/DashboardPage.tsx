@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import styles from './DashboardPage.module.css';
 import CryptoTabsComponent from './components/CryptoTabs';
@@ -17,17 +17,18 @@ const DashboardPage = () => {
           <PortfolioComponent />
         </Route>
         <Route path={`${match.path}/prices`}>
-          <h2>Prices Tab</h2>
+          <h1>Prices Tab</h1>
         </Route>
         <Route path={`${match.path}/defi`}>
-          <h2>DeFi Tab</h2>
+          <h1>DeFi Tab</h1>
         </Route>
         <Route path={`${match.path}/nfts`}>
-          <h2>NFTs Tab</h2>
+          <h1>NFTs Tab</h1>
         </Route>
         <Route path={`${match.path}/accounts`}>
-          <h2>Accounts Tab</h2>
+          <h1>Accounts Tab</h1>
         </Route>
+        <Redirect from={`${match.path}`} to={`${match.path}/portfolio`} />
       </Switch>
     </>
   );
